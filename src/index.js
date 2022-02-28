@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+// import "./firebase"; // TODO: Fix Truena
 
 ReactDOM.render(
   <React.StrictMode>

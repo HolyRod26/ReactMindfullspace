@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<MeditationLibrary />} />
+        <Route path="/posts" element={<MeditationLibrary />} />
       </Routes>
     </Box>
   );
