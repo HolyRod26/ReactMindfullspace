@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
-export default function MeditationLibrary() {
+export default function PostsLibrary() {
   // Add a new personal post
   const [posts, setPosts] = useState([]);
 
