@@ -25,7 +25,7 @@ export default function PostForm({ addOrEditPost }) {
 
   const [values, setValues] = useState(initialStateValues);
 
-  const { heading, content, mood } = values;
+  // const { heading, content, mood } = values;
 
   const iconSize = "1.5rem";
 
