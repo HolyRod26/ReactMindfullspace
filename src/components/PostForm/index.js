@@ -42,7 +42,7 @@ export default function PostForm({ addOrEditPost }) {
     setValues({ ...initialStateValues });
   };
   return (
-    <Box bg={"white"} p={4} w={"75%"} marginInline={"auto"}>
+    <Box bg={"white"} p={4} w={"50%"} marginRight={"auto"}>
       <Input
         placeholder="How are you feeling today"
         size={"md"}

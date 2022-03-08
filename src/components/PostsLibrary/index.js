@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import PostForm from "../PostForm";
 import { db } from "../../firebase";
 import { collection, addDoc, onSnapshot, query } from "firebase/firestore";
@@ -8,7 +8,7 @@ import PostList from "../PostList";
 
 export default function PostsLibrary() {
   // Add a new personal post
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const addOrEditPost = async (linkObject) => {
     try {
@@ -21,14 +21,14 @@ export default function PostsLibrary() {
 
   let stopPostListener;
 
-  const getPosts = () => {
+  const getPosts = async () => {
     const postsQuery = query(collection(db, "posts"));
     stopPostListener = onSnapshot(postsQuery, (querySnapshot) => {
-      querySnapshot.forEach((snap) =>
-        console.log(
-          `Document: ${snap.id} contains ${JSON.stringify(snap.data())}`
-        )
-      );
+      const allPosts = [];
+      querySnapshot.forEach((snap) => {
+        allPosts.push({ ...snap.data(), id: snap.id });
+      });
+      setPosts(allPosts);
     });
   };
 
@@ -38,10 +38,10 @@ export default function PostsLibrary() {
   }, []);
 
   return (
-    <Box>
+    <Flex>
       <PostForm addOrEditPost={addOrEditPost} />
-      <PostList />
-    </Box>
+      <PostList posts={posts} />
+    </Flex>
   );
 }
 
